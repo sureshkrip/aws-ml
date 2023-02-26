@@ -20,6 +20,10 @@ RUN apt-get update && \
     unixodbc-dev \
     r-cran-rodbc \
     gfortran \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libcurl4-gnutls-dev \
+    libxml2-dev \
     gcc && \
     rm -rf /var/lib/apt/lists/*
 
