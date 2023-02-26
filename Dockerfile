@@ -20,6 +20,8 @@ RUN apt-get update && \
     unixodbc-dev \
     r-cran-rodbc \
     gfortran \
+    libcurl4-openssl-dev \
+    libssl-dev \
     gcc && \
     rm -rf /var/lib/apt/lists/*
 
@@ -40,6 +42,9 @@ RUN /opt/conda/bin/conda install -c r r-IRkernel && \
     /opt/conda/bin/conda install -c bioconda bcftools  && \
     /opt/conda/bin/conda install -c bioconda/label/cf201901 bcftools  
 
+RUN R -e "install.packages('devtools')"
+RUN R -e "devtools::install_github('IRkernel/IRkernel')"  && \
+    R -e "IRkernel::installspec()"
 
 #S3ContentManager Config
 RUN echo 'from s3contents import S3ContentsManager' >> /etc/jupyter/jupyter_notebook_config.py  && \
