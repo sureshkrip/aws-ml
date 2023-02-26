@@ -26,7 +26,7 @@ RUN apt-get update && \
 # Fix for devtools https://github.com/conda-forge/r-devtools-feedstock/issues/4
 RUN ln -s /bin/tar /bin/gtar
 
-
+RUN wget -qO ~/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && /bin/bash ~/miniconda.sh -b -p /opt/conda && rm ~/miniconda.sh && /opt/conda/bin/conda clean -ya
 # R packages
 
 RUN /opt/conda/bin/conda install -c r r-IRkernel && \
