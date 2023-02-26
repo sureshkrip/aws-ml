@@ -13,7 +13,7 @@ RUN pip install jupyter  && \
     mkdir /etc/jupyter
 
 # R pre-requisites
-RUN apt-get update && \
+RUN apt-get update && apt-get install wget\
     apt-get install -y --no-install-recommends \
     fonts-dejavu \
     unixodbc \
