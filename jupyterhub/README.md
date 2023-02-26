@@ -1,1 +1,0 @@
-Build Dockerfile and push it to ECR
