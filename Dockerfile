@@ -3,7 +3,7 @@ FROM jupyterhub/jupyterhub:latest
 #USER root
 
 # update Ubuntu
-RUN apt-get update
+RUN apt-get update && apt-get install wget
 
 
 # Install jupyter, awscli and s3contents (for storing notebooks on S3)
@@ -14,7 +14,6 @@ RUN pip install jupyter  && \
 
 # R pre-requisites
 RUN apt-get update \
-    apt-get install wget \
     apt-get install -y --no-install-recommends \
     fonts-dejavu \
     unixodbc \
