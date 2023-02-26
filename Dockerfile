@@ -29,16 +29,16 @@ RUN ln -s /bin/tar /bin/gtar
 
 # R packages
 
-RUN conda install -c r r-IRkernel && \
-    conda install -c r rstudio && \
-    conda install -c r/label/borked rstudio && \
-    conda install -c r r-devtools  && \
-    conda install -c r r-ggplot2 r-dplyr  && \
-    conda install -c plotly plotly  && \
-    conda install -c plotly/label/test plotly  && \ 
-    conda update curl  && \
-    conda install -c bioconda bcftools  && \
-    conda install -c bioconda/label/cf201901 bcftools  
+RUN /opt/conda/bin/conda install -c r r-IRkernel && \
+    /opt/conda/bin/conda install -c r rstudio && \
+    /opt/conda/bin/conda install -c r/label/borked rstudio && \
+    /opt/conda/bin/conda install -c r r-devtools  && \
+    /opt/conda/bin/conda install -c r r-ggplot2 r-dplyr  && \
+    /opt/conda/bin/conda install -c plotly plotly  && \
+    /opt/conda/bin/conda install -c plotly/label/test plotly  && \ 
+    /opt/conda/bin/conda update curl  && \
+    /opt/conda/bin/conda install -c bioconda bcftools  && \
+    /opt/conda/bin/conda install -c bioconda/label/cf201901 bcftools  
 
 RUN R -e "devtools::install_github('IRkernel/IRkernel')"  && \
     R -e "IRkernel::installspec()"
